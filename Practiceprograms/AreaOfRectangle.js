@@ -1,5 +1,5 @@
 //area of a rectangle
-function calculateAreaOfRectangl() {
+function calculateAreaOfRectang() {
     var length = 5;
     var width = 4;
     var areaOfRectangle = length * width;

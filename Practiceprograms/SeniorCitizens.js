@@ -1,6 +1,6 @@
 //1.1. Write a program to calculate if a person is a senior citizen or not 
 //age > 60 and age < 80
-function seniorCitizen(age) {
+function seniorCtizen(age) {
     var seniorcitizenornot = "";
     if (age > 60 && age < 80) {
         seniorcitizenornot = " person is  senior citizen";
