@@ -1,0 +1,29 @@
+// add node_modules to .gitignore
+node_modules/
+// add dist to .
+gitignore
+dist/
+// add .env to .gitignore
+.env
+// add .DS_Store to .gitignore
+.DS_Store
+// add .vscode to .gitignore
+.vscode/
+// add .idea to .gitignore
+.idea/
+// add coverage to .gitignore
+coverage/
+// add logs to .gitignore
+logs/
+// add tmp to .gitignore
+tmp/
+// add .cache to .gitignore     
+.cache/
+// add .eslintcache to .gitignore
+.eslintcache
+// add .nyc_output to .gitignore
+.nyc_output/
+// add .next to .gitignore
+.next/            
+// add .nuxt to .gitignore
+practiceprograms/tmsproject/node_modules/
