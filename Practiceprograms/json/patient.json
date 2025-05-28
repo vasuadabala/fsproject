@@ -1,22 +1,22 @@
 [ 
-  {
+   {
     "Name": "Priya ",  
-    "time": 10,
-    "gender": false,
+     "time": 10,
+    "gender": "female",
     "problem": "blood infection",  
     "ph.no": 9876543210
   },
   {
     "Name": "Rahul",
     "time": 12,
-    "gender": true,
+    "gender": "male",
     "problem": "cancer",
     "ph.no": 8765432109
   },
   {
     "Name": "Dilip",
-    "time": 1,
-    "gender": false,
+    "time": 12,
+     "gender": false,
     "problem": "fever.",
     "ph.no": 7654321098
   }
