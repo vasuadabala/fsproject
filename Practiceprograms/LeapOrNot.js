@@ -1,15 +1,13 @@
 //16. Write a program to determine whether the given year is leap year or not.
+//this method is input as year
+//the output checks the given year leap year or not 
 function leapYearOrNot(year) {
-    var message = "";
     if (year % 4 == 0) {
-        message = " given year is leap year";
-        console.log(message);
-        return message;
+        " given year is leap year";
+        console.log(year, "  is leap year");
     }
     else {
-        message = "given year is not a leap year";
-        console.log(message);
-        return message;
+        console.log(year, " is not a leap year");
     }
 }
 leapYearOrNot(2000);

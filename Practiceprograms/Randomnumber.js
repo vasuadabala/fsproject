@@ -1,23 +1,21 @@
-//30.Generate a random number between 1 and 9 (including 1 and 9). Ask the user to guess the number, then tell them whether they guessed too low, too high, or exactly right.
+//30.Generate a random number between 1 and 9 (including 1 and 9). Ask the user to guess the number, 
+// then tell them whether they guessed too low, too high, or exactly right.
+//this method is input as number and give us output
+//outpuit shows us to number is too low, too high, or exactly right.
 function randomNumber(num) {
-    var number = Math.floor(Math.random() * 9) + 1;
+    var number = Math.floor(Math.random() * 9);
     console.log(number);
-    var message = "";
     if (num < number) {
-        message = "to low";
-        console.log(message);
+        console.log(num, "is to low");
     }
     else if (num > number) {
-        message = "to high";
-        console.log(message);
+        console.log(num, "is to high");
     }
     else if (num == number) {
-        message = "excatly right";
-        console.log(message);
+        console.log(num, "is excatly right");
     }
     else {
-        message = "invalid number";
-        console.log(message);
+        console.log(num, "is invalid number");
     }
 }
 randomNumber(5);

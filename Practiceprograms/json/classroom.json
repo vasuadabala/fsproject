@@ -1,0 +1,24 @@
+[ 
+  {
+    "Name": "Conference Hall A", 
+    "Capacity": 150,
+    "Location": "Main Building, 2nd Floor",  
+    "Schedules": "Project Meeting"
+      
+  },
+  {
+    "Name": "Meeting Room 1",
+    "Capacity": 10,
+    "Location": "Annex Building, Ground Floor",
+    "Schedules":"Interview"
+     
+  },
+  {
+    "Name": "Training Room",
+    "Capacity": 50,
+    "Location": "Main Building, Basement",
+    "Schedules":  "Software Training"
+    
+  
+  }
+]  

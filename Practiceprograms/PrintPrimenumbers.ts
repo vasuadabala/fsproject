@@ -1,7 +1,8 @@
 //18. Write a program to print 1st five prime numbers.
+//this method input as number and output print 5  prime numbers
 
-function printPrimeNumber(){
-    let count = 0;
+function primeNumbers(){
+let count = 0;
 let number = 2;
 
 while (count < 5) {
@@ -19,8 +20,8 @@ while (count < 5) {
     count++;
   }
 
-  number++;
+  number++;
 }
 }
-printPrimeNumber();
 
+primeNumbers();

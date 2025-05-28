@@ -1,0 +1,23 @@
+[ 
+  {
+    "name": "Vasu Adabala",
+    "id": 67890,
+    "age": 19,
+    "gender": false,
+    "branch": "computer Engineering"
+  },
+  {
+    "name": "Sai Adabala",
+    "id": 13579,
+    "age": 19,
+    "gender": true,
+    "branch": "Mechanical Engineering"
+  },
+  {
+    "name": "Praveen Adapa",
+    "id": 24680,
+    "age": 19,
+    "gender": true,
+    "branch": "Electrical Technology"
+  }
+] 

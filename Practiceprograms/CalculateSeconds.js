@@ -1,9 +1,8 @@
 //4.write a function to calculate seconds in a day
-function calculateSecond() {
-    var hours = 24;
-    var minutes = 60;
-    var seconds = 60;
+// in this method the inputs are hours and minutes and seconds 
+//we get the output as total seconds in a day
+function calculateSeconds(hours, minutes, seconds) {
     var totalseconds = hours * minutes * seconds;
-    console.log(totalseconds);
+    console.log(" totalseconds in a day ", totalseconds);
 }
-calculateSeconds();
+calculateSeconds(24, 60, 60);

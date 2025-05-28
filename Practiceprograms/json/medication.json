@@ -1,0 +1,16 @@
+[ 
+  {
+    "Identifier": "RX67890",   
+    "Drug": "Amoxicillin",
+    "Brand Name": "Amoxil", 
+    "Dosage": "250mg",
+    "Administered": "Oral"
+  },
+  {
+    "Identifier": "RX13579",
+    "Drug": "Lisinopril",
+    "Brand Name": "Zestril",
+    "Dosage": "10mg",
+    "Administered": "Oral"
+  }
+]  

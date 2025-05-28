@@ -7,6 +7,7 @@ function vowels(letters){
     }
     else {
         message = " not a vowel";
+        return ;
     }
     console.log(message);
     return message;

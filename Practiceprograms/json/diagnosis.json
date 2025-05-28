@@ -1,0 +1,14 @@
+[ 
+  {
+    "Name": "Influenza",  
+    "Identifier": "FLU",
+    "Diseases Code": "J10",
+    "Description": "An acute viral infection of the respiratory tract characterized by fever, cough, sore throat, and muscle aches."
+  },
+  {
+    "Name": "Type 2 Diabetes Mellitus",
+    "Identifier": "T2DM",
+    "Diseases Code": "E11",
+    "Description": "A chronic metabolic disorder characterized by high blood sugar, insulin resistance, and relative insulin deficiency."
+  }
+] 

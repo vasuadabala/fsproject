@@ -1,10 +1,9 @@
-//area of a rectangle
-function calculateAreaOfRectang() {
-    var length = 5;
-    var width = 4;
-    var areaOfRectangle = length * width;
-    if (areaOfRectangle >= 0) {
-        console.log(areaOfRectangle);
-    }
+//2.area of a rectangle
+function caculateAreaOfRectangle(length, width) {
+    var areaOfRectangle = 0;
+    areaOfRectangle = length * width;
+    console.log("area of rectangle is ", areaOfRectangle);
+    return areaOfRectangle;
 }
-calculateAreaOfRectangle();
+calculateAreaOfRectangle(6, 8);
+calculateAreaOfRectangle(9, 6);

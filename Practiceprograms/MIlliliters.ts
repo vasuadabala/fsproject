@@ -1,10 +1,13 @@
-//convert liters into milli liters
+//3.convert liters into milli liters
+//in this method the inputs is liters
+//we get the output as milliliters 
 
-function litresConversion(){
-    let  litres= 2.5678;
-    let milliliters = litres * 1000;
-    console.log(milliliters);
-
+function litresConversion(liters) {
+  let milliliters = liters * 1000;
+  console.log(milliliters);
 }
-  
-  litresConversion();
+
+
+litresConversion(35);
+litresConversion(15);
+litresConversion(5);

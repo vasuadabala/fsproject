@@ -1,0 +1,21 @@
+[ 
+  {
+    "title": "Midterm Examination" ,
+    "Date and Time": "2025-05-10 10:00 AM ",
+    "Marks": 50, 
+    "Instructions": "Answer all questions. Show all your work."
+},
+  {
+    "title": "Final Project Submission",
+    "Date and Time": "2025-05-15 11:00 am ",
+    "Marks": 100,
+    "Instructions": "Submit your project report and code via the online portal."
+  },
+  {
+    "title": "Weekly Quiz 3",
+    "Date and Time": "2025-04-28 09:00 AM ",
+    "Marks": 15,
+    "Instructions": "This quiz covers topics from week 2. Time limit: 30 minutes."
+  }
+] 
+

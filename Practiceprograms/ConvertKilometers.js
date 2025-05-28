@@ -1,7 +1,10 @@
 //14. Write a function to convert kilometers into meters.
-function convertKilometers() {
-    var kilometers = 5;
+//this method is input as kilometers and output give us to meters
+function convertKilometers(kilometers) {
     var totelmeters = kilometers * 1000;
-    console.log(totelmeters);
+    console.log(kilometers, "kilometers converted into meters is", totelmeters);
 }
-convertKilometers();
+convertKilometers(9);
+convertKilometers(34);
+convertKilometers(16);
+convertKilometers(7);

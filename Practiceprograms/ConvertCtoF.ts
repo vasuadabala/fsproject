@@ -1,9 +1,13 @@
-//12.Write a function to convert celsius to fahrenheit.
+//12.Write a function to convert celsius to fahrenheit
+//this method is input as celsius and give us output as fahernhit
 
-function convertOfTemperature(){
-    let celsius = 32 ;
-    let converttofahernheit = (celsius * 9/5) + 32 ;
-    console.log(converttofahernheit);
+
+function convertOfTemperature(celsius) {
+ 
+  let converttofahernheit = (celsius * 9 / 5 )+ 32;
+  console.log(celsius, "celcius is converted to fahernheat is", converttofahernheit);
 }
 
- convertOfTemperature();
+convertOfTemperature(32);
+convertOfTemperature(42);
+convertOfTemperature(64);

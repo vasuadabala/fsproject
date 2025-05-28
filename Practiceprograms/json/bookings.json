@@ -1,0 +1,23 @@
+[ // start of list data is a open square bracket 
+  {  // start of list item is a open flower brace
+    "Theatre Name": "PVR Inorbit Mall", // item property key is a string value in quotes key is a string value in quotes
+    "Movie name": "Avengers: Endgame",  // item property key is a string value in quotes 
+    "Address": "Inorbit Mall, Madhapur, Hyderabad", //item proerty value can be string (must be in quotes), it can be a number (no quotes) , it can be a boolean value, it can be a null value
+    "Price": 250, // item must be separated by a comma
+    "Screen Name": "Screen 1"
+  } // end of a list is a closed flower brace ,
+  {
+    "Theatre Name": "AMB Cinemas Gachibowli",
+    "Movie name": "Oppenheimer",
+    "Address": "SLN Millennium Mall, Gachibowli, Hyderabad",
+    "Price": 300,
+    "Screen Name": "Screen Gold"
+  },
+  {
+    "Theatre Name": "INOX Maheshwari Parameshwari",
+    "Movie name": "RRR",
+    "Address": "RTC X Roads, Hyderabad",
+    "Price": 180,
+    "Screen Name": "Screen 3"
+  } 
+] // end of a json list data is a closing square bracket

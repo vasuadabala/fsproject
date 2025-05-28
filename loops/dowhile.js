@@ -1,5 +1,5 @@
 // print 10 numbers using do while loop
-function printtennumbers() {
+function pinttennumbers() {
     var i = 10; // initialize the variable i as 1 
     do { //executes the loop
         console.log(i);
@@ -7,7 +7,7 @@ function printtennumbers() {
     } while (i <= 100); // later condition
 }
 //printtennumbers();
-function evennumbers() {
+function evenumbers() {
     //we can declare and assin 2 to i
     //because 2 is the starting number
     //do condition will be execute the value 

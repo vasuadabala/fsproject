@@ -1,10 +1,10 @@
-//convert week into minutes
-function calculateMinutes(){
-    let days = 7;
-    let hours = 24;
-    let minutes = 60;
-    let totalminutes =days * hours * minutes;
-    console.log(totalminutes);
- }
+//5.convert week into minutes
+// in this method the inputs are days and hours and minutes  
+//we get the output as total seconds in a day
+function calculateMinutes(days, hours,minutes) {
  
- calculateMinutes();
+  let totalminutes = days * hours * minutes;
+  console.log(totalminutes);
+}
+
+calculateMinutes(7, 24, 60);

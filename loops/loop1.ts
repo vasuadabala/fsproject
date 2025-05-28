@@ -25,7 +25,7 @@ function printnumber(){
     // for(let i=1; i<10; i++) 8
     // for(let i=1; i<10; i++) 9
 
-    //for(let i=1;  i<+10; i++) 1
+    //for(let i=1;  i<=10; i++) 1
     // for(let i=1; i<=10; i++) 2
     // for(let i=1; i<=10; i++) 3
     // for(let i=1; i<=10; i++) 4

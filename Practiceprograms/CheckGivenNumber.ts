@@ -1,24 +1,22 @@
 //17. Write a program to check whether given numbers are positive, negative or zero.
+// this method is input as number and it give output 
+//output give us given number as postive and negative and zero   
 
-function checkingTheGivenNumbers(number){
-    let message ="";
-     if(number > 0){
-        message = "Given number is positive";
-        console.log(message);
-        return message;
-     }
-     else if(number < 0){
-        message = "Given number is negative";
-        console.log(message);
-        return message;
+function checkingTheGivenNumbers(number) {
+ 
+  if (number > 0) {
+  
+    console.log(" Given number is positive ");
 
-     }
-     else{
-        message ="Given number is zero";
-        console.log(message);
-        return message;
-
-     }
+  } else if (number < 0) {
+    
+    console.log("Given number is negative");
+    
+  } else {
+   
+    console.log("Given number is zero");
+   
+  }
 }
 checkingTheGivenNumbers(6);
 checkingTheGivenNumbers(-1);

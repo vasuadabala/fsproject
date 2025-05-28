@@ -1,0 +1,16 @@
+[ 
+  {
+    "settlement Id": "SID20250426-001", 
+    "Claim": "Accidental Damage - Car",
+    "Amount Paid": 1250.75,
+    "Date and Time": "2025-04-26 16:15 IST",  
+    "Status": "Paid"
+  },
+  {
+    "settlement Id": "SID20250426-002",
+    "Claim": "Medical Expenses - Injury",
+    "Amount Paid": 5800.00,
+    "Date and Time": "2025-04-25 09:30 IST",
+    "Status": "Approved"
+  }
+]  
