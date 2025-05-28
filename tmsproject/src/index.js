@@ -15,7 +15,9 @@ app.get('/about', (req, res) => {
 app.post('/submit', (req, res) => {
   const data = req.body
   console.log('Received POST data:', data)
-  res.send({ message: 'Data received successfully', receivedData: data })
+  let response  = { message: 'Data received successfully', receivedData: data };
+
+      res.send(response)
   
 })
 
