@@ -1,36 +1,25 @@
-// create mysql connection
-import mysql from 'mysql2/promise';
-import { config } from '../config.js';  
-// import { logger } from '../utils/logger.js';
+const mysql = require("mysql");
 const pool = mysql.createPool({
-  host: config.db.host,
-  user: config.db.user,
-  database: config.db.database,
-  password: config.db.password,
-  port: config.db.port,
+  host:"localhost",
+  user:"root",
+  database:"tms",
+  password:"Sai1234@",
+  port:3306
 });
 
-// write a function to get a client from the pool
-export const getClient = async () => {
-  try {
-    const connection = await pool.getConnection();
-    return connection;
-  } catch (error) {
-    // logger.error('Error getting client from pool', error);
-    throw error;
+pool.getConnection((err, connection) => {
+  if (err) {
+    console.error("Error connecting to the database:", err);
+  } else {
+    console.log("Connected to the MySQL database");
+    
+    connection.query("select * from train_info", (err, res) => {
+      connection.release();
+      if (err) {
+        console.log("Error executing query:", err);
+      } else {
+        console.log("Query result:", res);
+      }
+    });
   }
-};
-
-// write a function execute a select query on employee table
-export const executeSelectQuery = async (query, params = []) => {
-  const connection = await getClient();
-  try {
-    const [rows] = await connection.execute(query, params);
-    return rows;
-  } catch (error) {
-    // logger.error('Error executing select query', error);
-    throw error;
-  } finally {
-    connection.release();
-  }
-};
+});

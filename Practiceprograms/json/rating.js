@@ -145,7 +145,7 @@ console.log(numbers2);
 
 //flatmap the array to create a new array with the length of each string
 
-function transformArray() {
+function transformArray() {'
   let myArr = [1, 2, 3, 4, 5, 6];
   return myArr.flatMap(x => [x, x * 10]);
 }
