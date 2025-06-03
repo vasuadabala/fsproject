@@ -1,26 +1,23 @@
-const express = require('express')
-const app = express()
-const port = 3000
 
-app.use(express.json())
+import express from 'express';
+import { getTrainInfo } from './db/postgres.js';
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const app = express();
+const port = 3000;
 
-app.get('/about', (req, res) => {
-  res.send('This is About Page')
-})
-
-app.post('/submit', (req, res) => {
-  const data = req.body
-  console.log('Received POST data:', data)
-  let response  = { message: 'Data received successfully', receivedData: data };
-
-      res.send(response)
-  
-})
+app.get('/trains', (req, res) => {
+  getTrainInfo()
+    .then(train_info => {
+      res.send(train_info); 
+    })
+    .catch(err => {
+      console.error("Error fetching train info:", err);
+      res.send("Internal Server Error");
+    });
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
+
