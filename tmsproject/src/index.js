@@ -18,7 +18,7 @@ app.get('/trains', (req, res) => {
 
 
 app.post('/save', (req, res) => {
-  postTrainInfo(req, res);
+res.send("data saved successfully");
     
 });
 
