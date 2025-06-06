@@ -1,0 +1,35 @@
+// train_id,
+//     train_no,
+//     train_name,
+//     starting_station,
+//     starting_time,
+//     destination_station,
+//     arrival_time,
+//     travel_duration,
+//     no_of_stations,
+//     stn_btn_src_des,
+//     couch_composition,
+//     running_frequency
+
+// prepare json for above 
+{
+  "train_no": "12345",
+  "train_name": "Express Train",
+  "starting_station": "Station A",
+  "starting_time": "08:00",
+  "destination_station": "Station B",
+  "arrival_time": "10:00",
+  "travel_duration": "2 hours",
+  "no_of_stations": 5,
+  "stn_btn_src_des": ["Station A", "Station C", "Station D", "Station E", "Station B"],
+  "couch_composition": {
+    "general": 10,
+    "sleeper": 5,
+    "ac_3tier": 2,
+    "ac_2tier": 1
+  },
+  "running_frequency": {
+    "days_of_week": ["Monday", "Wednesday", "Friday"],
+    "frequency_per_day": 2
+  }
+}
