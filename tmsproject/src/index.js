@@ -1,5 +1,5 @@
 import express from 'express'; 
-import { getTrainInfo, saveTrainInfo } from './db/postgres.js';
+import { getTrainInfo, saveTrainInfo, putTrainInfo} from './db/postgres.js';
 
 const app = express();
 const port = 3000;
@@ -30,7 +30,21 @@ console.log("saveTrainInfo:", saveTrainInfo); // Debugging
       });
   });
 
-    
+ 
+app.put('/putdata/:id', (req, res) => {
+  const data = { ...req.body, train_id: parseInt(req.params.id) };
+  
+  putTrainInfo(data)
+    .then(result => {
+      return res.json(result);
+    })
+    .catch(err => {
+      console.error("Error updating train info:", err);
+      res.status(500).send("the train_id not exist in the database");
+    });
+
+
+});
 
 
 
