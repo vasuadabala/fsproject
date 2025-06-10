@@ -30,21 +30,23 @@ console.log("saveTrainInfo:", saveTrainInfo); // Debugging
       });
   });
 
- 
 app.put('/putdata/:id', (req, res) => {
   const data = { ...req.body, train_id: parseInt(req.params.id) };
 
   updateTrainInfo(data)
     .then(result => {
-      if (result.exists) {
-        res.json({ message: "train_id exists" });
-      } else {
-        res.status(404).json({ message: "train_id does not exist" });
-      }
+      res.json({ 
+        message: "Train updated successfully",
+        train: result.train 
+      });
     })
     .catch(err => {
-      console.error("Error updating train info:", err);
-      res.status(500).send("Server error");
+      if (err.message === "Train ID does not exist") {
+        res.status(404).json({ message: err.message });
+      } else {
+        console.error("Error updating train info:", err);
+        res.status(500).send("Server error");
+      }
     });
 });
 

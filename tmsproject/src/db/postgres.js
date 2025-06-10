@@ -53,7 +53,8 @@ export function saveTrainInfo(req) {
     no_of_stations,
     stn_btn_src_des,
     couch_composition,
-    running_frequency
+    running_frequency,
+    train_id
   } = req.body;
 
   const query = `
@@ -76,7 +77,9 @@ export function saveTrainInfo(req) {
     no_of_stations,
     JSON.stringify(stn_btn_src_des),
     JSON.stringify(couch_composition),
-    JSON.stringify(running_frequency)
+    running_frequency,
+    train_id
+  
   ];
 
   return client.connect()
@@ -99,21 +102,69 @@ export function updateTrainInfo(data) {
     port: 5432,
   });
 
+  const {
+    train_id, 
+    train_no,
+    train_name,
+    starting_station,
+    starting_time,
+    destination_station,
+    arrival_time,
+    travel_duration,
+    no_of_stations,
+    stn_btn_src_des,
+    couch_composition,
+    running_frequency
+  } = data;
+
+  const updatequery = `
+    UPDATE train_info
+    SET 
+      train_no = $1,
+      train_name = $2,
+      starting_station = $3,
+      starting_time = $4,
+      destination_station = $5,
+      arrival_time = $6,
+      travel_duration = $7,
+      no_of_stations = $8,
+      stn_btn_src_des = $9,
+      couch_composition = $10,
+      running_frequency = $11
+    WHERE train_id = $12
+    RETURNING *;
+  `;
+
+  const values = [
+    train_no,
+    train_name,
+    starting_station,
+    starting_time,
+    destination_station,
+    arrival_time,
+    travel_duration,
+    no_of_stations,
+    JSON.stringify(stn_btn_src_des),
+    JSON.stringify(couch_composition),
+    JSON.stringify(running_frequency),
+    train_id 
+  ];
+
   return client.connect()
     .then(() => {
-      return client.query("SELECT * FROM train_info WHERE train_id = $1", [data.train_id]);
+      return client.query("SELECT * FROM train_info WHERE train_id = $1", [train_id]);
     })
     .then(result => {
-      if (result.rows.length > 0) {
-        console.log("trainid exists in the database");
-        return { exists: true };
-      } else {
-        console.log("trainid does not exist in the database");
-        return { exists: false };
+      if (result.rows.length === 0) {
+        throw new Error("Train ID does not exist");
       }
+      return client.query(updatequery, values);
+    })
+    .then(result => {
+      return { success: true, train: result.rows[0] };
     })
     .catch(err => {
-      console.error("Query error:", err);
+      console.error("Error:", err);
       throw err;
     })
     .finally(() => {
