@@ -14,12 +14,16 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
-    "pg": "^8.16.0",
-    "postgres": "^3.4.7"
+    "pg": "^8.16.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.2",
+<<<<<<< HEAD
     "@types/pg":"^4.0.2",
     "@types/mysql":"^2.15.27"
+=======
+    "@types/mysql": "^2.15.17",
+    "@types/pg": "^8.15.4"
+>>>>>>> 22039d74ace1ccf4c448b0d24949cbc4d778040a
   }
 }

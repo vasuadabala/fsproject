@@ -1,5 +1,5 @@
 import express from 'express'; 
-import { getTrainInfo, saveTrainInfo, updateTrainInfo} from './db/postgres.js';
+import { getTrainInfo, saveTrainInfo} from './db/postgres.js';
 
 const app = express();
 const port = 3000;
@@ -15,7 +15,7 @@ app.get('/trains', (req, res) => {
     });
 });
 
-
+// Endpoint to save train information
 app.post('/traininfo', (req, res) => {
   // send the request body to the database
   
@@ -26,11 +26,16 @@ console.log("saveTrainInfo:", saveTrainInfo); // Debugging
       })
       .catch(err => {
         console.error("Error saving train info:", err);
-        res.status(500).send("Internal Server Error");
+        res.status(500).send("Internal Server Error" + err);
       });
   });
 
+<<<<<<< HEAD
 app.put('/putdata/:id', (req, res) => {
+=======
+ 
+app.put('/updateTrainInfo/:id', (req, res) => {
+>>>>>>> 22039d74ace1ccf4c448b0d24949cbc4d778040a
   const data = { ...req.body, train_id: parseInt(req.params.id) };
 
   updateTrainInfo(data)
