@@ -22,9 +22,8 @@ export function getTrainInfo() {
   });
 }
 
-export function postTrainInfo(data) {
+export function saveTrainInfo(data) {
   const {
-    train_id,
     train_no,
     train_name,
     starting_station,
@@ -40,15 +39,14 @@ export function postTrainInfo(data) {
 
   const query = `
     INSERT INTO train_info (
-      train_id, train_no, train_name, starting_station, starting_time,
+       train_no, train_name, starting_station, starting_time,
       destination_station, arrival_time, travel_duration,
       no_of_stations, stn_btn_src_des, couch_composition, running_frequency
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `;
 
 
   const values = [
-    train_id,
     train_no,
     train_name,
     starting_station,
@@ -69,6 +67,32 @@ export function postTrainInfo(data) {
         connection.release();
         if (err) return reject(err);
         resolve(results);
+      });
+    });
+  });
+}
+export function updateTrainInfo(train_id) {
+  return new Promise((resolve, reject) => {
+    pool.getConnection((err, connection) => {
+      if (err) return reject(err);
+
+      const query = 'SELECT * FROM train_info WHERE train_id = ?';
+      connection.query(query, [train_id], (err, results) => {
+        connection.release(); // ✅ release connection back to pool
+
+        if (err) {
+          console.error('Query error:', err);
+          return reject(err);
+        }
+
+        if (results.length > 0) {
+          console.log('train_id exists in the database');
+          resolve({ exists: true });
+        } else {
+          console.log('train_id does not exist in the database');
+          resolve({ exists: false });
+
+        }
       });
     });
   });
