@@ -1,11 +1,16 @@
+//import {getClient} from "./pgclient.js";
 import { Client } from "pg";
+
 const client = new Client({
-    user: "postgres",
-    host: "localhost",
-    database: "tms",
-    password: "vas123@#",
-    port: 5432,
-  });
+  user: "tmsadmin",
+  host: "localhost",
+  database: "postgres",
+  password: "tmsadmin",
+  port: 5432,
+});
+
+//const client = getClient();
+
 export function getTrainInfo() {
   
   return client.connect()
@@ -85,7 +90,6 @@ export function postTrainInfo(req, res) {
 
 export function saveTrainInfo(req) {
    
-  client.connect(); 
   
   const {
     train_no,
@@ -134,59 +138,85 @@ export function saveTrainInfo(req) {
 
 }
 
+export function getTrainById(train_id) {
+  client.connect();
+
+  const query = "SELECT * FROM train_info WHERE train_id = $1";
+  const values = [train_id];
+
+  return client.query(query, values)
+    .then(result => {
+      if (result.rows.length === 0) {
+        throw new Error("Train not found");
+      }
+      return result.rows[0];
+    })
+    .catch(err => {
+      console.error("Error fetching train by ID:", err);
+      throw new Error("Error fetching train data.");
+    })
+    .finally(() => client.end());
+}
+
 export function putTrainInfo( data) {
  
   client.connect();
 
   const {
-   train_id,
-    train_no,
-    train_name,
-    starting_station,
-    starting_time,
-    destination_station,
-    arrival_time,
-    travel_duration,
-    no_of_stations,
-    stn_btn_src_des,
-    couch_composition,
-    running_frequency
-  } = data;
- 
-  const query = `
-    UPDATE train_info
-    SET 
-      train_no = $1,
-      train_name = $2,
-      starting_station = $3,
-      starting_time = $4,
-      destination_station = $5,
-      arrival_time = $6,
-      travel_duration = $7,
-      no_of_stations = $8,
-      stn_btn_src_des = $9,
-      couch_composition = $10,
-      running_frequency = $11
-    WHERE train_id = $12
-  `;
-  const values = [
-   
-    train_no,
-    train_name,
-    starting_station,
-    starting_time,
-    destination_station,
-    arrival_time,
-    travel_duration,
-    no_of_stations,
-    JSON.stringify(stn_btn_src_des),
-    JSON.stringify(couch_composition),
-    running_frequency,
-    train_id
+    train_id,
+     train_no,
+     train_name,
+     starting_station,
+     starting_time,
+     destination_station,
+     arrival_time,
+     travel_duration,
+     no_of_stations,
+     stn_btn_src_des,
+     couch_composition,
+     running_frequency
+   } = data;
   
-  ];
+   const updatequery = 
+     `UPDATE train_info
+     SET 
+       train_no = $1,
+       train_name = $2,
+       starting_station = $3,
+       starting_time = $4,
+       destination_station = $5,
+       arrival_time = $6,
+       travel_duration = $7,
+       no_of_stations = $8,
+       stn_btn_src_des = $9,
+       couch_composition = $10,
+       running_frequency = $11
+     WHERE train_id = $12
+   `;
+   const values = [
+    
+     train_no,
+     train_name,
+     starting_station,
+     starting_time,
+     destination_station,
+     arrival_time,
+     travel_duration,
+     no_of_stations,
+     JSON.stringify(stn_btn_src_des),
+     JSON.stringify(couch_composition),
+     running_frequency,
+     train_id
+   
+   ];
 
-  return client.query(query, values)
+  getTrainById(data.train_id)
+    .then(train => {
+      if (!train) {
+        throw new Error("Train not found");
+      }
+      else {
+        return client.query(updatequery, values)
     .then(result => {
       console.log("Updated:", result.rowCount);
       return result; // Return the updated row count
@@ -196,4 +226,13 @@ export function putTrainInfo( data) {
       throw new Error("Error updating train data.");
     })
     .finally(() => client.end());
+      }
+    })
+    .catch(err => {
+      console.error("Error checking train existence:", err);
+      throw new Error("Train ID does not exist in the database.");
+    });
+  
+
+  
 } 

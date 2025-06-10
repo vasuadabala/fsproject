@@ -15,7 +15,7 @@ app.get('/trains', (req, res) => {
     });
 });
 
-
+// Endpoint to save train information
 app.post('/traininfo', (req, res) => {
   // send the request body to the database
   
@@ -31,7 +31,7 @@ console.log("saveTrainInfo:", saveTrainInfo); // Debugging
   });
 
  
-app.put('/putdata/:id', (req, res) => {
+app.put('/updateTrainInfo/:id', (req, res) => {
   const data = { ...req.body, train_id: parseInt(req.params.id) };
   
   putTrainInfo(data)
