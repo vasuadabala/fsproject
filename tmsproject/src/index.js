@@ -1,5 +1,5 @@
 import express from 'express'; 
-import { getTrainInfo, saveTrainInfo, updateTrainInfo} from './db/postgres.js';
+import { getTrainInfo, saveTrainInfo} from './db/postgres.js';
 
 const app = express();
 const port = 3000;
@@ -26,7 +26,7 @@ console.log("saveTrainInfo:", saveTrainInfo); // Debugging
       })
       .catch(err => {
         console.error("Error saving train info:", err);
-        res.status(500).send("Internal Server Error");
+        res.status(500).send("Internal Server Error" + err);
       });
   });
 

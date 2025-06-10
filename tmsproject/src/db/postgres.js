@@ -1,11 +1,11 @@
 //import {getClient} from "./pgclient.js";
-import { Client } from "pg";
+import { Pool } from 'pg';
 
-const client = new Client({
-  user: "tmsadmin",
-  host: "localhost",
-  database: "postgres",
-  password: "tmsadmin",
+const pool = new Pool({
+  user: 'tmsadmin',
+  host: 'localhost',
+  database: 'postgres',
+  password: 'tmsadmin',
   port: 5432,
 });
 
@@ -13,13 +13,8 @@ const client = new Client({
 
 export function getTrainInfo() {
   
-  return client.connect()
-    .then(() => {
-      console.log("Connected to the database");
-      return client.query("SELECT * FROM train_info");
-    })
-    .then(result => result.rows)
-    .finally(() => client.end());
+   return pool.query("SELECT * FROM train_info")
+    .then(result => result.rows);
 }
 
 // Function to insert train info
@@ -124,19 +119,18 @@ export function saveTrainInfo(req) {
     JSON.stringify(couch_composition),
     running_frequency
   ];
-  return client.query(query, values)
+  return pool.query(query, values)
     .then(result => {
       console.log("Inserted:", result);
       return result; // Return the inserted row
     })
     .catch(err => {
       console.error("Insert error:", err);
-      throw new Error("Error inserting train data.");
-    })
-    .finally(() => client.end());
-
+     throw err;
+})
 
 }
+
 
 export function getTrainById(train_id) {
   client.connect();
